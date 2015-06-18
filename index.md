@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hello World!
+title: fumatech!
 tagline: Supporting tagline
 wordpress_id: index
 ---
