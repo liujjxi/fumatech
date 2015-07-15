@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+    <div class="fumaCon dream1">
+      <h3 class="title">
+        <span class="sr-only">福马梦</span>
+      </h3>
+      <p>非龙头不做，不成功不止。创业之路，坎坷万千，然聚团队之力，借项目之特，钻行业缝隙，塑品牌之路，前有精英作战，后有和谐家园，中存己之优势，吾福马必于五年今朝荣夺头冠。吾等众人，均得人之首金，以其为石，万事均可，一鼓作气，必成大业，无愧吾等今生之旅。</p>
+      <div class="row">
+        {%for x in (1..4) %}
+        <div class="col-xs-3">
+          <div class="fumaBtn">
+            <a href="index5-dream{{x}}.html"><h4 class="">{% cycle 'group 1': '企业文化', '比学赶帮超', '发展总纲', '求贤令' %}</h4></a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

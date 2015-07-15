@@ -1,0 +1,44 @@
+---
+layout: page
+title: E路走来
+description: E路走来
+comments : false
+wordpress_id: news
+---
+{% include JB/setup %}
+
+{% assign posts_collate = site.posts %}
+{% include JB/posts_collate %}
+<div class="row">
+
+  <div class="col-xs-8 col-xs-offset-2">
+    <div class="newsCon">
+      <h3 class="title">
+        <span class="sr-only">E路走来</span>
+      </h3>
+      <p>
+        2014年4月22日福马科技发展有限公司成立，并与本年11月21日福马科技旗下手机APP滑客获得计算机软件著作权登记证书。会滑客，惠生活，2014年12月21日，滑客安卓1.1在万众期待下正式上线。时隔一个季度，2015年3月27日滑客用户突破16万。福马科技也于4月1日迁入中电软件园总部大楼，并与本月24日推出滑客安卓1.2版本。你狂欢，我买单，更多精彩，尽请期待。
+      </p>
+      <div class="row">
+        {%for x in (1..4) %}
+        <div class="col-xs-6">
+          <dl class="newsList newsList-{{x}}">
+            <dt>首届“福马杯辩论赛”圆满落幕</dt>
+            <dd class="newsDesc">
+              <small>
+                第一届福马杯辩论赛在湖南福马科技发展有限公司的作战指挥室拉开了帷幕（会议室），参赛辩手就“比、学、赶、帮、超作为企业文化更好”还是“管理、执行、团队、感恩文化作为企业文化更好”展开了激烈的辩论。经过近一个半小时的口才角逐后，正方以略胜的优势拿下第一名的成绩。
+              </small>
+            </dd>
+            <dd>
+              <small>
+                <a href="" class="pull-right">查看更多</a>
+                2015-05-09
+              </small>
+            </dd>
+          </dl>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

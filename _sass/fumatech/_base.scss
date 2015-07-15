@@ -1,0 +1,482 @@
+/**
+ * Reset some basic elements
+ */
+@charset "utf-8";
+
+
+// Our variables
+$base-font-family: 'Microsoft Yahei', SimHei, 'Hiragino Sans GB', Tahoma, Arial, Helvetica;
+$en-font-family:  Helvetica,Arial;
+$base-font-size:   16px;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+$img-url:          '/assets/themes/fumatech/images';
+
+$spacing-unit:     0px;
+
+$text-color:       #454545;
+$link-color:       #ffe600;
+$background-color: #2b2b2b;
+$brand-color:      #a81902;
+$brand-color-light:lighten($brand-color, 5%);
+$brand-color-dark: darken($brand-color, 5%);
+$title-color:      #fff713;
+
+$grey-color:       #757575;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+// Width of the content area
+$content-width:    1920px;
+
+$on-palm:          600px;
+$on-laptop:        800px;
+
+
+// Using media queries with like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+@mixin opacity($opacity:50) {
+  opacity: $opacity / 100;
+  filter: alpha(opacity=$opacity);
+}
+@mixin transition($type:all,$time:.5s,$delay:0s) {
+  -moz-transition: $type $time $delay;
+  -o-transition: $type $time $delay;
+  -ms-transition: $type $time $delay;
+  -webkit-transition: $type $time $delay;
+  transition: $type $time $delay;
+}
+@mixin transition-delay($delay:1s) {
+  -moz-transition-delay:$delay;
+  -o-transition-delay:$delay;
+  -ms-transition-delay:$delay;
+  -webkit-transition-delay:$delay;
+  transition-delay:$delay;
+}
+
+@mixin transform($transforms) {
+       -moz-transform: $transforms;
+         -o-transform: $transforms;
+        -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+          transform: $transforms;
+}
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+ 
+// scale
+@mixin scale($scale) {
+     @include transform(scale($scale));
+} 
+// translate
+@mixin translate ($x, $y) {
+  @include transform(translate($x, $y));
+}
+// skew
+@mixin skew ($x, $y) {
+   @include transform(skew(#{$x}deg, #{$y}deg));
+}
+//transform origin
+@mixin transform-origin ($origin) {
+    moz-transform-origin: $origin;
+         -o-transform-origin: $origin;
+        -ms-transform-origin: $origin;
+    -webkit-transform-origin: $origin;
+          transform-origin: $origin;
+}
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+    margin: 0;
+    padding: 0;
+}
+
+*{
+  @include transition();
+}
+
+/**
+ * Basic styling
+ */
+body {
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    font-weight: 300;
+    color: $text-color;
+    background-color: #fff;
+    -webkit-text-size-adjust: 100%;
+}
+
+
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+    margin-bottom: $spacing-unit / 2;
+}
+
+
+
+/**
+ * Images
+ */
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+
+
+/**
+ * Figures
+ */
+figure > img {
+    display: block;
+}
+
+figcaption {
+    font-size: $small-font-size;
+}
+
+
+
+/**
+ * Lists
+ */
+ul, ol {
+    /*margin-left: $spacing-unit;*/
+}
+
+li {
+    > ul,
+    > ol {
+         margin-bottom: 0;
+    }
+}
+
+
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+}
+
+
+
+/**
+ * Links
+ */
+ a {
+    color: $grey-color;
+    text-decoration: none;
+
+    &:visited {
+        /*color: darken($brand-color, 15%);*/
+    }
+
+    &:focus,&:hover,&.active {
+        color: $grey-color-dark;
+        text-decoration: none;
+    }
+}
+
+small{
+    font-size: $small-font-size;
+    color: $grey-color;
+}
+
+
+/**
+ * Blockquotes
+ */
+blockquote {
+    color: $grey-color;
+    border-left: 4px solid $grey-color-light;
+    padding-left: $spacing-unit / 2;
+    font-size: 18px;
+    letter-spacing: -1px;
+    font-style: italic;
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+    font-size: 15px;
+    border: 1px solid $grey-color-light;
+    border-radius: 3px;
+    background-color: #eef;
+}
+
+code {
+    padding: 1px 5px;
+}
+
+pre {
+    padding: 8px 12px;
+    overflow-x: scroll;
+
+    > code {
+        border: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+
+
+
+/**
+ * display:table
+ */
+%disTable {
+  display: table;height: 100%;
+}
+%cell{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+
+/**
+ * Clearfix
+ */
+%clearfix {
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+/**
+ * title
+ */
+%title{
+  width: 100%;height: 450px;
+  background: url(#{$img-url}/aboutTxt.png) no-repeat right 1em;
+}
+%title2{
+  width:100%;height: 95px;margin: 0 0 2em;
+  background: url(#{$img-url}/contactTxt.png) no-repeat 0 0;
+}
+%title3{
+  height: 52px;
+  &:before,&:after{
+    content:"";
+    position: absolute;top: 68px;
+    width:40%;height: 1px; background-color: rgba(255,255,255,.4);
+  }
+  &:before{
+    left: 0;
+  }
+  &:after{
+    right: 0;
+  }
+}
+.en{
+  font-family: $en-font-family;
+  font-size: 12px;
+}
+/**
+ * Icons
+ */
+.icon {
+
+    > svg {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+
+        path {
+            fill: $grey-color;
+        }
+    }
+}
+/* Header */
+header {
+  margin: 0; padding: 68px 20px 22px 36px; float:left; position:fixed;z-index:999;
+  width:230px; height: 100%; 
+  background: $brand-color url(#{$img-url}/swirl_pattern.png) repeat 0 0;
+  color: #FDFDFB;
+  &>ul {
+    margin-top: 4em;padding-left: 48px;
+    list-style:none;
+    line-height: 70px;
+    a{
+      color: #fff;
+      &:focus,&:hover,&.active {
+          color: $link-color;
+      }
+    }
+  }
+}
+/**
+ * Wrapper
+ */
+.wrapper {
+    position: relative;
+    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
+    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+    /* margin-right: auto;
+    margin-left: auto;
+    padding-right: $spacing-unit;
+    padding-left: $spacing-unit; */
+    @extend %clearfix;
+    @include opacity(0);
+    @include transition-delay(.1s );
+    @include media-query($on-laptop) {
+        max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
+        max-width:         calc(#{$content-width} - (#{$spacing-unit}));
+        padding-right: $spacing-unit / 2;
+        padding-left: $spacing-unit / 2;
+    }
+
+    header,header a,.title,p,.map{
+      @include opacity(0);
+    }
+    header a,.title,.map{
+      @include transition-delay(.3s );
+    }
+    header{
+      @include translate(-230px,0);
+    }
+    .title,header a{
+      @include translate(-30px,0);
+    }
+    p{
+      @include translate(0,-30px);
+    }
+    .map{
+      @include scale(.95);
+    }
+    &.animate{
+      @include opacity(100);
+      &>section,.map{
+        @include scale(1);
+      }
+      header{
+        @include translate(0,0);
+      }
+      .title,header a{
+        @include translate(0,0);
+      }
+      p{
+        @include translate(0,0);
+      }
+      header,header a,.title,p,.map{
+        @include opacity(100);
+      }
+    }
+}
+html{
+  height: 100%;
+  body,.wrapper,section{
+    min-height: 100%;
+  }
+  $page-list: home, about, news, fuma, dream, contact;
+  @each $page in $page-list {
+    &##{$page} {
+      body{
+        background-image: url(#{$img-url}/#{$page}P1.png);
+      }
+    }
+  }
+  body{
+      width: 100%;position: relative;
+      background-repeat:no-repeat;
+      background-color:$brand-color;
+      background-position:230px 0;
+      background-size: cover;
+      background-origin: content-box;
+      background-clip: content-box;
+      background-attachment: fixed;
+      @include transition(background);
+      &.none{
+        background-image:none !important;
+      }
+      #loading{
+        width: 100%;height: 100%;position: absolute; top: 0; left: 0;
+        background: $brand-color url(#{$img-url}/swirl_pattern.png) repeat 0 0;
+        color: #fff;
+        .loading{
+          margin: 0 auto;
+          @extend %disTable;
+        }
+        .load-progress{
+          @extend %cell;
+          background:none;
+        }
+
+      }
+      .wrapper>section{
+        @include scale(.95);
+        padding-left: 230px;
+        line-height: $base-line-height;
+        h3{
+          margin:1em 0;color: #000;
+        }
+        p{
+          text-indent: 2em;font-size:14px;
+          margin-bottom: 1em;
+        }
+        .con div.txt{
+          padding-left: 2em;
+        }
+      }
+      .wrapper>section>section{
+        padding:6% 4em;
+        &>.row{
+          width:760px;margin-left: 5%;
+          background-color: rgba(0,0,0,.4);color: #fff;
+          .con{
+            margin: 2em 0;padding: .1em 2em; border-left: 1px solid rgba(255,255,255,.4); min-height: 450px;width: 100%;
+            h3{
+              text-align: center;color: $title-color !important;
+            }
+            p{
+
+            }
+          }
+        }
+      }
+  }
+  #footer{
+    padding-left: 230px;position: absolute;left: 0;bottom: 1em;
+    width: 100%;color: #7c4d00;
+    text-align: center;font-size: 12px;
+    small{
+      color: #7c4d00;
+    }
+    address{
+      margin-bottom: 0;
+    }
+  }
+}

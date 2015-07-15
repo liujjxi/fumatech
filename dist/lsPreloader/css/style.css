@@ -1,0 +1,29 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+#wrap {
+    width: 1204px;
+    height: 850px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.imagem {
+    width: 1920px;
+    height: 1080px;
+    background-repeat: no-repeat;
+}
+#local #img4 {
+    background-image: url(../img/4.jpg);
+}
+#local #img8 {
+    background-image: url(../img/8.jpg);
+}
+#externo #img4 {
+    background-image: url(http://imagens.russian-women.net/papel-parede-retratos/pictures-1920-1200/Russian-pictures-wallpaper-1920-1200-Imagens-da-R%C3%BAssia-Crim%C3%A9ia-foto-Ni328625.jpg);
+}
+#externo #img8 {
+    background-image: url(http://www.ateliedetextos.com.br/imagens_alta/Interfloor/paredeWoodrusticEbanizado_pisoRusticBlack.JPG);
+}
