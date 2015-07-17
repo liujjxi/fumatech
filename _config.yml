@@ -19,9 +19,9 @@ author :
   tel: 4006-2828-25 0731-82808080
   description: > # this means to ignore newlines until "baseurl:"
    湖南福马科技|滑客|湘行一卡通|火树银花|屏保软件赚积分商城|移动互联网APP开发|运营|福马集团|滑客.
-  imgurl: "/assets/style/img/"
-  jsurl: "/assets/style/js/"
-  cssurl: "/assets/style/css/"
+  imgurl: "/fumatech/assets/style/img/"
+  jsurl: "/fumatech/assets/style/js/"
+  cssurl: "/fumatech/assets/style/css/"
   baseurl: "" # the subpath of your site, e.g. /blog/
   url: "http://www.fumatech.cn/" # the base hostname & protocol for your site
   copyright: www.fumatech.cn All Rights reserved
