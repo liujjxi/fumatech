@@ -248,18 +248,31 @@
     @extend %title;
   }
 }
-
-/*E路走来*/
-#news{
+#news,#dream .dream1{
   .wrapper{
     section{
       section{
         padding: 6% 15%;
         &>.row{
           margin-left: 0;
-          width: auto;background-color: rgba(255,255,255,.4);color: $text-color;
+          width: auto;
           .con{
-            padding-left: 5em;border-left-color:rgba(0,0,0,.4);
+            padding-left: 5em;
+          }
+        }
+      }
+    }
+  }
+}
+/*E路走来*/
+#news{
+  .wrapper{
+    section{
+      section{
+        &>.row{
+          background-color: rgba(255,255,255,.4);color: $text-color;
+          .con{
+            border-left-color:rgba(0,0,0,.4);
           }
         }
       }
@@ -277,6 +290,11 @@
       color: #000;font-size:24px;margin: 1em 0;text-align: center;
       small{
         font-size: 12px;color: #000;
+      }
+    }
+    .con{
+      img{
+        margin: 2em auto 1em;
       }
     }
   }
@@ -304,6 +322,9 @@
     a,small{
       color: $text-color;
     }
+    p{
+      text-indent: 0;
+    }
     .date{
       position: absolute; left: 28px; top:24px;
       font-size:24px;line-height: 24px;color: #fff;text-align: center;
@@ -312,7 +333,7 @@
       }
     }
     .media-heading{
-      height: 2em;overflow: hidden;padding-top: .5em
+      height: 2em;overflow: hidden;padding-top: .5em;line-height: 2em;
     }
     .newsDesc{
       height: 3em;overflow: hidden;
@@ -325,6 +346,56 @@
       }
     }
   }
+  @at-root .carousel{
+    &.carousel-fade {
+      .carousel-inner {
+        .item {
+          opacity: 0;
+          transition-property: opacity;
+        }
+
+        .active {
+          opacity: 1;
+        }
+
+        .active.left,
+        .active.right {
+          left: 0;
+          opacity: 0;
+          z-index: 1;
+        }
+
+        .next.left,
+        .prev.right {
+          opacity: 1;
+        }
+      }
+
+      .carousel-control {
+        z-index: 2;
+      }
+    }
+
+    .carousel-inner{
+      padding-bottom: 3em
+    }
+    .carousel-control{
+      top:auto; left: 50%;
+      width: 30px; height: 30px; background-color: $brand-color;background-image:none;
+      border-radius: 50%;
+      @include opacity(100);
+      &:hover{
+        background-color: $brand-color-dark;
+      }
+      .glyphicon{
+        font-size: 20px;line-height: 30px;
+        text-shadow: none;
+      }
+      &.left{
+        margin-left: -50px;
+      }
+    }
+  }
 }
 
 /*福马+*/
@@ -334,14 +405,59 @@
     background-image:url(#{$img-url}/fumaTxt.png);
   }
 }
+#fuma .xxykt{
+  .fumaBtn.icon{
+    float: left;margin: 2em 1em;
+    width: 100px;height: 100px;
+    a{
+      @include opacity(50);cursor:pointer;
+      background: none;
+       border: none;
+    }
+    &.active{
+      background-color:$brand-color-light;
+      &:after{
+        content:'';
+        position: absolute;left: 50%;bottom:-37px;
+        width:0px;
+        height:0px;
+        margin-left: -8px;
+        border-left:8px solid transparent;
+        border-right:8px solid transparent;
+        border-bottom:15px solid rgba(0,0,0,.3);
+      }
+      a{
+        @include opacity(100) ;
+      }
+    }
+  }
+  .nav-tabs{
+    border-bottom:none;
+    li{
+      // border:none;
+    }
+  }
+  .tab-content{
+    padding: 1em;background-color:rgba(0,0,0, .3);
+    border-radius:10px;min-height: 8em;
+    p{
+      text-indent: 0;
+    }
+  }
+}
 #fuma,#dream{
   .fumaBtn{
     margin: 2em auto;
-    width: 115px;height: 115px;background:$brand-color no-repeat center content-box;
+    width: 125px;height: 125px;background:$brand-color no-repeat center content-box;
     background-size:80%;
-    border-radius: 50%;padding: 10px;border:1px solid $brand-color;
+    border-radius: 50%;padding: 5px;border:1px solid $brand-color;
+    @include transition(border,.2s);
+    &:hover,&.active{
+      padding: 10px;
+      border-width: 5px;
+    }
     a{
-      margin-bottom: 1em;display: table;width: 100%;height: 100%;text-align: center;
+      margin-bottom: 1em;display: table;width: 100%;height: 100%;text-align: center;outline:none;
       h4{
         display: table-cell;font-size:14px;
         vertical-align: middle;color: #fff;
@@ -370,8 +486,16 @@
     }
   }
 }
+#fuma,#contact{
+  footer,footer small{
+    color: #531400;
+  }
+}
 /*福马梦*/
 #dream{
+  footer,footer small{
+    color: #fff;
+  }
   @for $i from 0 through 4 {
     .dream#{$i} .title{
       @extend %title;
@@ -389,12 +513,32 @@
       }
     }
   }
-  @for $i from 3 through 4 {
+  @for $i from 1 through 4 {
     .dream#{$i}{
         background-image:url(#{$img-url}/dreamP#{$i}.png);
     }
   }
+  .dream0{
+    background-image:url(#{$img-url}/dreamP2.png);
+  }
+  .dream1{
+    .img{
+      margin:1em 0;position: relative;background-color: #000;
+      .desc{
+        padding: 1em;position: absolute;left: 0;right: 0;bottom: 0;
+        background-color: rgba(0,0,0,.4);
+        color: #fff;font-size:12px;
+      }
+    }
+  }
   .dream2{
+    #page{
+      @for $i from 1 through 5 {
+        .item:nth-child(#{$i}) .title{
+          background-image: url(#{$img-url}/dreamTxt2-#{$i}.png);
+        }
+      }
+    }
     .con{
       @extend %disTable;
       .bxgbc{

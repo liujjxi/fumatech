@@ -330,12 +330,19 @@ header {
     margin-top: 4em;padding-left: 48px;
     list-style:none;
     line-height: 70px;
+    @include media-query(1366px){
+      margin-top: 2em;
+      line-height: 55px;
+    }
     a{
       color: #fff;
       &:focus,&:hover,&.active {
           color: $link-color;
       }
     }
+  }
+  #navBtn{
+    cursor: pointer;
   }
 }
 /**
@@ -352,14 +359,7 @@ header {
     @extend %clearfix;
     @include opacity(0);
     @include transition-delay(.1s );
-    @include media-query($on-laptop) {
-        max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
-        max-width:         calc(#{$content-width} - (#{$spacing-unit}));
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
-    }
-
-    header,header a,.title,p,.map{
+   header,header a,.title,p,.map{
       @include opacity(0);
     }
     header a,.title,.map{
@@ -419,11 +419,24 @@ html{
       background-clip: content-box;
       background-attachment: fixed;
       @include transition(background);
+      &.left{
+        background-position:0 0;
+        .wrapper>section{
+          padding-left: 0;
+        }
+        .wrapper.animate header{
+          @include translate(-230px,0);
+          #navBtn{
+            padding: 1em;line-height: 2;
+            position: absolute;left: 230px;top: 0;background-color: $brand-color;
+          }
+        }
+      }
       &.none{
         background-image:none !important;
       }
-      #loading{
-        width: 100%;height: 100%;position: absolute; top: 0; left: 0;
+      #ie{
+        width: 100%;height: 100%;position: absolute; top: 0; left: 0;display:none;
         background: $brand-color url(#{$img-url}/swirl_pattern.png) repeat 0 0;
         color: #fff;
         .loading{
@@ -433,6 +446,10 @@ html{
         .load-progress{
           @extend %cell;
           background:none;
+          text-align: center;
+          h4,p,ul{
+            margin: 1em 0;
+          }
         }
 
       }
@@ -461,8 +478,8 @@ html{
             h3{
               text-align: center;color: $title-color !important;
             }
-            p{
-
+            strong{
+              color: $title-color;
             }
           }
         }
