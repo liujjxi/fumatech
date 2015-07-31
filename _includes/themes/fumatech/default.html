@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"  id="{{ page.category }}"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"  id="{{ page.category }}"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9 ie" lang="en"  id="{{ page.category }}"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"  id="{{ page.category }}"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="author" content="{{ site.author.name }}" />
+    <meta name="keywords" content="{{ page.keywords }}-{{ site.author.keywords }}">
+    <meta name="description" content="{{ page.description }}-{{ site.author.description }}">
+    <title>{{ page.description }}|{{ site.author.description }}</title>
+    <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="{{ ASSET_PATH }}/css/jquery.pageLoading.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ CSS_PATH }}/css/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> 
+    <!--[if lt IE 9]>
+    <script src="style/html5.js"></script>
+    <![endif]-->
+    <!-- {% include JB/analytics %} -->
+    <script src="{{ ASSET_PATH }}/jquery.min.js"></script>
+    <script src="{{ ASSET_PATH }}/bootstrap/js//bootstrap.min.js"></script>
+    <script>
+    var show=true;
+    </script>
+  </head>
+  <body id="load" class="{{page.wordpress_id}} none">
+    <div class="wrapper palm">
+      <header>
+        <h1 class="header">
+        <a href="{{ HOME_PATH }}">
+          <span class="sr-only">{{ site.title }}</span>
+          <img src="{{ ASSET_PATH }}/images/logo.png" alt="" class="img-responsive">
+        </a></h1>
+        <ul>
+          {% assign pages_list = site.pages %}
+          {% assign group = 'navigation' %}
+          {% include JB/pages_list %}
+          <li><span id="navBtn">X 关闭 </span></li>
+        </ul>
+      </header>
+
+      <section>
+      {{ content }}
+
+      </section>
+      <footer id="footer">
+        {% if site.author %}
+        <div class="misc vcard">
+          {% if site.author.email %}
+          <p class="contact"><address><span class="author fn n">{{ site.author.name }}</span> - <span class="fn ips">{{ site.author.ips }}</span></address></p>
+          {% endif %}
+        </div><!-- misc -->
+        {% endif %}
+        <p><small>Copyright 2015 &copy; {{ site.author.copyright }}</small></p>
+      </footer>
+    </div>
+    <div id="ie">
+      <div class="loading">
+        <div class="load-progress">
+          <img src="{{ ASSET_PATH}}/images/logo3.png" alt="">
+          <p>OUT了么?快别用低版本浏览器了</p>
+          <h4>下载高版本浏览器浏览网页</h4>
+          <ul class="list-inline">
+            <li><a href="http://dl1sw.baidu.com/soft/9e/14917/IE10-Windows6.1-zh-cn.exe?version=3474208079" title="ie浏览器"><img src="http://img5sw.baidu.com/soft/9e/14917/917483255202ac43cff687bb8023ecc9.png?version=3474208079" alt="ie浏览器"></a></li>
+            <li><a href="http://dlsw.baidu.com/sw-search-sp/soft/51/11843/Firefox_V39.0.0.5659_setup.1435906049.exe" title="火狐浏览器"><img src="http://img5sw.baidu.com/soft/51/11843/490e0956d6a42250d18ea537b2f607a0.png?version=2117677129" alt="火狐浏览器"></a></li>
+            <li><a href="http://dlsw.baidu.com/sw-search-sp/soft/42/16490/QQBrowser_Setup_V9.0.2315.400.1436323540.exe" title="QQ浏览器"><img src="http://img5sw.baidu.com/soft/42/16490/38e1aa30b0435b3945279edbdeb013cc.png?version=17266887817" alt="QQ浏览器"></a></li>
+            <li><a href="http://dlsw.baidu.com/sw-search-sp/soft/55/11339/bdbrowserSetup-7.5.100.1939-1093_11000003.1435286551.exe" title="百度浏览器"><img src="http://img5sw.baidu.com/soft/55/11339/2a20c69c4caf8c21bb58c641ef2c9f00.png?version=1487626722" alt="百度浏览器"></a></li>
+            <li><a href="http://dlsw.baidu.com/sw-search-sp/soft/9d/14744/ChromeStandalone_V43.0.2357.134_Setup.1436927123.exe" title="谷歌浏览器"><img src="http://img5sw.baidu.com/soft/9d/14744/354efefe0c09dbb86b5fa93d9a01510c.png?version=4100425087" alt="谷歌浏览器"></a></li>
+            <li><a href="http://dlsw.baidu.com/sw-search-sp/soft/df/35600/sogou_explorer_new12306.1409282862.exe" title="搜狗浏览器"><img src="http://img5sw.baidu.com/soft/df/35600/506016ddef08aeb696fb23e8db197d93.png?version=4027997570" alt="搜狗浏览器"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="num">
+      <div class="cell">挂牌代码<br>300246</div>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    <script src="{{ ASSET_PATH }}/js/lsPreloader.min.js"></script>
+  
+    <script>
+      var winH=$(window).height();
+      function load(){
+        $('body').removeClass('none');
+        $('.wrapper').addClass('animate');
+        if($('.wrapper').height()<winH){
+          $('.wrapper').height(winH)
+        }
+      }
+      $(function(){
+          
+       /**/ $("#load").lsPreloader({
+            
+            backgroundColor:    "#a81902",
+            backgroundImage:  "assets/themes/fumatech/images/swirl_pattern.png",
+            backgroundRepeat: "repeat",
+            logoImage:      "assets/themes/fumatech/images/logo.png",
+            progressShow:   true,
+            minimumTime:        .5,
+            progressHeight:     "2px",
+            progressPosition:   "center",
+            progressColor:      "#fff",
+            percentShow:    true, 
+            animationComplete:  "fade",
+            // fade | hide | slideUp | slideDown | slideLeft | slideRight 
+            percentFontFamily:  "Verdana, Geneva, sans-serif",
+            percentFontSize:    "14px",
+            minimumTime:    .5,  
+            onStart:            function(){
+              if(!show){
+                $('.wrapper').hide();
+                $('#ie').show();
+              }
+            },
+            onComplete:         function(){
+              if(show){
+                load();
+              }
+            }
+        });
+        if($(window).width()<1360){
+          $('body').addClass('left');
+          $('#navBtn').show().html('<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>');
+        }
+        $('#navBtn').on('click',function(){
+          if($('body').hasClass('left')){
+            $('body').removeClass('left');
+            $('#navBtn').html('X 关闭')
+          }else{
+            $('body').addClass('left');
+            $('#navBtn').html('<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>')
+          }
+        })
+                  
+      });
+          
+          
+    </script>
+  </body>
+</html>

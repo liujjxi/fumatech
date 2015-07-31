@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col-xs-2">
+    <h3 class="title">
+      <span class="sr-only">企业文化</span>
+    </h3>
+  </div>
+  <div class="col-xs-10">
+    <div class="con">
+      <div class="row">
+        <div id="page" class="carousel slide carousel-fade" data-interval="false">
+          <div class="carousel-inner" role="listbox" id="newsLoad">
+            
+          </div>
+           <!-- Controls -->
+          <a class="left carousel-control" href="#page" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#page" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(function(){
+    $.ajax({
+      url:'djs.json',
+      dataType:"json",
+      beforeSend:function(jqXHR,settings){
+        console.log('loading');
+      },
+      success:function(response,status,xhr){
+        console.log('loaded');
+        var json_news=response,
+                  num=6,
+                  i=0,
+                  newsIdx=0,
+                  result=[];
+        $.each(json_news,function(index,value){   
+          if(value.newsType==4){
+            newsIdx++;
+            result.push(value);
+          }
+        })   
+        var page=Math.ceil(newsIdx/num);
+        if(page<=1) $('.carousel-control').remove();
+        $('#newsLoad').append('<div class="item active page'+i+'"></div>');
+        loadNews(result.slice(i*num,num*(i+1)),i);
+
+        $('.carousel-control.right').click(function(){
+          if(i<page-1){
+             i++;
+             $('#newsLoad').append('<div class="item page'+i+'"></div>');
+             loadNews(result.slice(i*num,num*(i+1)),i);
+          }
+          
+        });
+
+        // loadNews(json_news.slice(0,num),num,i,newsIdx);
+      }
+    });
+
+  });
+  function loadNews(json,i){
+    $.each(json,function(index,value){
+      var desc='';
+      if(!value.newsDesc=='') {
+        desc='<div class="desc">'+value.newsDesc+'</div>';
+      } 
+
+     $('.page'+i).append('<div class="col-sm-6"><div class="media img"><img src="'+value.newsImg+'">'+desc+'</div></div>')
+    });
+
+
+  }
+
+</script>

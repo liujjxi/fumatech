@@ -1,0 +1,11 @@
+#logo2{
+  position: absolute; top: 11%;right: 7%;
+  width: 354px;height: 338px;background: url(#{$img-url}/logo2.png) no-repeat 0 0;
+}
+@include media-query($on-palm) {
+    #logo2{
+        width: 60%;
+        top: 20%;
+        background-size: contain;
+    }
+}

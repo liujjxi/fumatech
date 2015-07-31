@@ -1,0 +1,766 @@
+@charset "utf-8";
+/**
+ * Site header
+ */
+.site-header {
+    border-top: 5px solid $grey-color-dark;
+    border-bottom: 1px solid $grey-color-light;
+    min-height: 56px;
+
+    // Positioning context for the mobile navigation icon
+    position: relative;
+}
+
+.site-title {
+    font-size: 26px;
+    line-height: 56px;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+    float: left;
+
+    &,
+    &:visited {
+        color: $grey-color-dark;
+    }
+}
+
+.site-nav {
+    float: right;
+    line-height: 56px;
+
+    .menu-icon {
+        display: none;
+    }
+
+    .page-link {
+        color: $text-color;
+        line-height: $base-line-height;
+
+        // Gaps between nav items, but not on the first one
+        &:not(:first-child) {
+            margin-left: 20px;
+        }
+    }
+
+    @include media-query($on-palm) {
+        position: absolute;
+        top: 9px;
+        right: 30px;
+        background-color: $background-color;
+        border: 1px solid $grey-color-light;
+        border-radius: 5px;
+        text-align: right;
+
+        .menu-icon {
+            display: block;
+            float: right;
+            width: 36px;
+            height: 26px;
+            line-height: 0;
+            padding-top: 10px;
+            text-align: center;
+
+            > svg {
+                width: 18px;
+                height: 15px;
+
+                path {
+                    fill: $grey-color-dark;
+                }
+            }
+        }
+
+        .trigger {
+            clear: both;
+            display: none;
+        }
+
+        &:hover .trigger {
+            display: block;
+            padding-bottom: 5px;
+        }
+
+        .page-link {
+            display: block;
+            padding: 5px 10px;
+        }
+    }
+}
+
+
+
+/**
+ * Site footer
+ */
+.site-footer {
+    border-top: 1px solid $grey-color-light;
+    padding: $spacing-unit 0;
+}
+
+.footer-heading {
+    font-size: 18px;
+    margin-bottom: $spacing-unit / 2;
+}
+
+.contact-list,
+.social-media-list {
+    list-style: none;
+    margin-left: 0;
+}
+
+.footer-col-wrapper {
+    font-size: 15px;
+    color: $grey-color;
+    margin-left: -$spacing-unit / 2;
+    @extend %clearfix;
+}
+
+.footer-col {
+    float: left;
+    margin-bottom: $spacing-unit / 2;
+    padding-left: $spacing-unit / 2;
+}
+
+.footer-col-1 {
+    width: -webkit-calc(35% - (#{$spacing-unit} / 2));
+    width:         calc(35% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-2 {
+    width: -webkit-calc(20% - (#{$spacing-unit} / 2));
+    width:         calc(20% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-3 {
+    width: -webkit-calc(45% - (#{$spacing-unit} / 2));
+    width:         calc(45% - (#{$spacing-unit} / 2));
+}
+
+@include media-query($on-laptop) {
+    .footer-col-1,
+    .footer-col-2 {
+        width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+        width:         calc(50% - (#{$spacing-unit} / 2));
+    }
+
+    .footer-col-3 {
+        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+        width:         calc(100% - (#{$spacing-unit} / 2));
+    }
+}
+
+@include media-query($on-palm) {
+    .footer-col {
+        float: none;
+        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+        width:         calc(100% - (#{$spacing-unit} / 2));
+    }
+}
+
+
+
+/**
+ * Page content
+ */
+.page-content {
+    padding: $spacing-unit 0;
+}
+
+.page-heading {
+    font-size: 20px;
+}
+
+.post-list {
+    margin-left: 0;
+    list-style: none;
+
+    > li {
+        margin-bottom: $spacing-unit;
+    }
+}
+
+.post-meta {
+    font-size: $small-font-size;
+    color: $grey-color;
+}
+
+.post-link {
+    display: block;
+    font-size: 24px;
+}
+
+
+
+/**
+ * Posts
+ */
+.post-header {
+    margin-bottom: $spacing-unit;
+}
+
+.post-title {
+    font-size: 42px;
+    letter-spacing: -1px;
+    line-height: 1;
+
+    @include media-query($on-laptop) {
+        font-size: 36px;
+    }
+}
+
+.post-content {
+    margin-bottom: $spacing-unit;
+
+    h2 {
+        font-size: 32px;
+
+        @include media-query($on-laptop) {
+            font-size: 28px;
+        }
+    }
+
+    h3 {
+        font-size: 26px;
+
+        @include media-query($on-laptop) {
+            font-size: 22px;
+        }
+    }
+
+    h4 {
+        font-size: 20px;
+
+        @include media-query($on-laptop) {
+            font-size: 18px;
+        }
+    }
+}
+
+/*home*/
+@import
+        "index"
+;
+
+
+/*公司简介*/
+#about{
+  .title{
+    @extend %title;
+  }
+}
+#news,#dream .dream1{
+  .wrapper{
+    section{
+      section{
+        padding: 6% 15%;
+        &>.row{
+          margin-left: 0;
+          max-width: none;
+          .con{
+            padding-left: 5em;
+            #con{
+              word-break: break-all;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/*E路走来*/
+#news{
+  .wrapper{
+    section{
+      section{
+        &>.row{
+          background-color: #f5e5c2;background-color: rgba(255,255,255,.4);color: $text-color;
+          .con{
+            border-left-color:#f5e5c2;border-left-color:rgba(0,0,0,.4);
+          }
+        }
+      }
+    }
+  }
+  .title{
+    @extend %title;
+    background-image:url(#{$img-url}/newsTxt.png);
+  }
+  .newsInfo{
+    .title{
+      background-image:url(#{$img-url}/newsTxt2.png);
+    }
+    h1{
+      color: #000;font-size:24px;margin: 1em 0;text-align: center;
+      small{
+        font-size: 12px;color: #000;
+      }
+    }
+    .con{
+      img{
+        margin: 2em auto 1em;
+      }
+    }
+  }
+  .col-xs-6{
+    &:nth-child(2n+1) .newsList{
+      margin-right: 3em;
+    }
+    &:nth-child(2n) .newsList{
+      margin-left: 3em;
+    }
+  }
+  .newsList{
+    margin: 2em 0;padding:10px 0 10px 120px;position: relative;
+    &:after{
+      content:"";
+      position: absolute;left: 2px;top: 55px;
+      width: 96px;height: 1px;line-height: 80px;background-color: $brand-color-dark;  box-shadow: 0 1px 0 0 $brand-color-light;
+    }
+    &:before{
+      content:"";
+      position: absolute;left: 15px;top: 20px;
+      width: 70px;height: 70px;background-color: $brand-color;
+      @include rotate(45);
+    }
+    a,small{
+      color: $text-color;
+    }
+    p{
+      text-indent: 0;
+    }
+    .date{
+      position: absolute; left: 28px; top:24px;
+      font-size:24px;line-height: 24px;color: #fff;text-align: center;
+      small{
+        color: #fff;font-size:12px;
+      }
+    }
+    .media-heading{
+      height: 2em;overflow: hidden;padding-top: .5em;line-height: 2em;
+    }
+    .newsDesc{
+      height: 3em;overflow: hidden;
+    }
+    @for $i from 1 through 4 {
+      &.newsList-#{$i} { 
+        &:after{
+          content:'#{$i}';
+        }
+      }
+    }
+  }
+  &.lt-ie9{
+    .newsList{
+      &:after{
+        left: 15px;
+        width: 70px;
+      }
+    }
+  }
+  @at-root .carousel{
+    &.carousel-fade {
+      .carousel-inner {
+        .item {
+          opacity: 0;
+          transition-property: opacity;
+        }
+
+        .active {
+          opacity: 1;
+        }
+
+        .active.left,
+        .active.right {
+          left: 0;
+          opacity: 0;
+          z-index: 1;
+        }
+
+        .next.left,
+        .prev.right {
+          opacity: 1;
+        }
+      }
+
+      .carousel-control {
+        z-index: 2;
+      }
+    }
+
+    .carousel-inner{
+      padding-bottom: 3em
+    }
+    .carousel-control{
+      top:auto; left: 50%;
+      width: 30px; height: 30px; background-color: $brand-color;background-image:none;
+      border-radius: 50%;
+      @include opacity(100);
+      &:hover{
+        background-color: $brand-color-dark;
+      }
+      .glyphicon{
+        font-size: 20px;line-height: 30px;
+        text-shadow: none;
+        @include media-query($on-palm){
+          top: 0;
+        }
+      }
+      &.left{
+        margin-left: -50px;
+      }
+    }
+  }
+}
+
+/*福马+*/
+.fuma{
+  .title{
+    @extend %title;
+    background-image:url(#{$img-url}/fumaTxt.png);
+  }
+}
+#fuma .xxykt{
+  .fumaBtn.icon{
+    float: left;margin: 2em 1em;
+    width: 100px;height: 100px;
+    a{
+      @include opacity(50);cursor:pointer;
+      background: none;
+       border: none;
+    }
+    &.active{
+      background-color:$brand-color-light;
+      &:after{
+        content:'';
+        position: absolute;left: 50%;bottom:-37px;
+        width:0px;
+        height:0px;
+        margin-left: -8px;
+        border-left:8px solid transparent;
+        border-right:8px solid transparent;
+        border-bottom:15px solid rgba(0,0,0,.3);
+      }
+      a{
+        @include opacity(100) ;
+      }
+    }
+  }
+  .nav-tabs{
+    border-bottom:none;
+    li{
+      // border:none;
+    }
+  }
+  .tab-content{
+    padding: 1em;background-color:rgba(0,0,0, .3);
+    border-radius:10px;min-height: 8em;
+    p{
+      text-indent: 0;
+    }
+  }
+}
+#fuma,#dream{
+  .fumaBtn{
+    margin: 2em auto;
+    width: 125px;height: 125px;
+    background-color:$brand-color;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-origin: content-box;
+    background-clip: content-box;
+    background-size:80%;
+    border-radius: 50%;padding: 5px;border:1px solid $brand-color;
+    @include transition(border,.2s);
+    &:hover,&.active{
+      padding: 10px;
+      border-width: 5px;
+    }
+    a{
+      margin-bottom: 1em;display: table;width: 100%;height: 100%;text-align: center;outline:none;
+      h4{
+        display: table-cell;font-size:14px;
+        vertical-align: middle;color: #fff;
+      }
+    }
+    @for $i from 1 through 3 {
+      &.fumaBtn-#{$i} { 
+        background-image: url(#{$img-url}/fumaTxt#{$i}.png);
+      }
+    }
+    &.fumaBtn-1{
+      background-position: center bottom;
+    }
+  }
+  &.lt-ie9{
+    .fumaBtn{
+      width: 135px;height: 145px;
+      background-color:transparent;
+      border:none;
+      &:hover,&.active{
+        padding: 0px;
+      }
+      @for $i from 1 through 3 {
+        &.fumaBtn-#{$i} { 
+          background-image: url(#{$img-url}/fumaTxt#{$i}ie.png);
+        }
+      }
+    }
+  }
+  .fumaCon1{
+    border-left:none;
+    .title{
+      @extend %title3;
+      height: 6em;
+      .fumaBtn{
+        margin: 10px auto ;
+      }
+    }
+    h3{
+      color: $title-color !important;
+    }
+  }
+}
+#fuma,#contact{
+  footer,footer small{
+    color: #531400;
+  }
+}
+/*福马梦*/
+#dream{
+  &.lt-ie9 .fumaBtn{
+    background: url(#{$img-url}/btnBg.png)
+  }
+  footer,footer small{
+    color: #fff;
+  }
+  @for $i from 0 through 4 {
+    .dream#{$i} .title{
+      @extend %title;
+      background-image: url(#{$img-url}/dreamTxt#{$i}.png);
+    }
+  }
+  @at-root .dream0,.dream2,.fuma,.contact{
+    &>.wrapper>section{
+      @extend %disTable;
+      &>section{
+        @extend %cell;
+        &>.row{
+          margin-left: 10%;
+        }
+      }
+    }
+  }
+  @for $i from 1 through 4 {
+    .dream#{$i}{
+        background-image:url(#{$img-url}/dreamP#{$i}.png);
+    }
+  }
+  .dream0{
+    background-image:url(#{$img-url}/dreamP2.png);
+  }
+  .dream1{
+    .img{
+      margin:1em 0;position: relative;background-color: #000;
+      .desc{
+        padding: 1em;position: absolute;left: 0;right: 0;bottom: 0;
+        background-color: rgba(0,0,0,.4);
+        color: #fff;font-size:12px;
+      }
+    }
+  }
+  .dream2{
+    #page{
+      @for $i from 1 through 5 {
+        .item:nth-child(#{$i}) .title{
+          background-image: url(#{$img-url}/dreamTxt2-#{$i}.png);
+        }
+      }
+    }
+    .con{
+      @extend %disTable;
+      .bxgbc{
+        @extend %cell;text-align: center;
+        &>div{
+          @extend %clearfix;
+          display: inline-block;
+          margin: 0 auto;
+        }
+        span{
+          width: 1em;
+          word-break: break-word;
+          word-wrap: break-word;
+          display: block;
+          float: left;
+          line-height: 1;
+          font-size: 22px;
+          margin: 0 1em;
+        }
+      }
+    }
+  }
+}
+/*联系我们*/
+#contact{
+  .map,.addr{
+    padding: 2em 0em 2em 1em;
+  }
+  .map{
+    img{
+      border:3px solid rgba(0,0,0,.1);
+    }
+    p{
+      @include transition-delay(0);
+    }
+  }
+  @at-root .addr{
+    .title{
+      @extend %title2;
+      @include translate(0,30px);
+
+    }
+    address{
+      line-height: 40px;
+    }
+    h3{
+      color: $title-color !important;margin-bottom: 1em
+    }
+  }
+
+}
+
+/**
+ *pagination
+ */
+#post-pagination{
+  display: block;text-align: center;position: relative;
+  @extend %title3;padding-top: 13px;
+  li{
+    margin: 0 5px;padding: 0;
+    width: 26px;height: 26px;line-height: 26px;text-align: center;border-radius: 50%;
+    color: #fff;background-color: $background-color;
+    a{
+      color: #fff;
+    }
+    &.current-page,&:hover{
+      background-color: $brand-color;
+    }
+  }
+}
+
+@include media-query($on-palm) {
+    html {
+      header{
+        width: 120px;padding: 1em;
+        ul{
+          line-height: 45px;padding-left: .5em;
+        }
+      }
+      #footer{
+        padding-left: 0px;
+      }
+      $page-list: home, about, news, fuma, dream, contact;
+      @each $page in $page-list {
+        &##{$page} {
+          body{
+            background-image: url(#{$m_img-url}/#{$page}P1.png) !important;
+          }
+        }
+      }
+      body {
+        background-position: 120px 0;
+        #num{
+          width: 125px; height: 70px; font-size: 12px;
+        }
+        .wrapper>section{
+          padding-left: 120px;
+          &>section{
+            padding: 0;
+            &>.row{
+              margin-left: 0;padding-top: 2em;padding-bottom:2em;background:transparent;
+              .col-xs-2{
+                padding: 0;
+                .title{
+                  background-size: contain !important;
+                }
+              }
+              .con {
+                padding:0 0 0 1em !important;
+                h3{
+                  font-size:16px;
+                }
+              }
+            }
+          }
+        }
+        &.left .wrapper.animate header #navBtn{
+          top:auto;bottom:3em;;
+        }
+      }
+    }
+    #news, #dream .dream1 {
+      .wrapper section section{
+        padding: 0;
+      }
+    } 
+    .dream0,.dream2,.fuma,.contact
+    {
+      &>.wrapper>section>section>.row{
+        margin-left: 0;
+      }
+    }
+    #fuma, #dream{
+       .fumaBtn{
+        width: 70px;height: 70px;margin: 0 0 0 -2em;font-size:12px;
+        a h4{
+          font-size: 12px;
+        }
+        &.icon{
+          width: 50px !important;height: 50px !important;margin: 1em .2em !important;
+         .fa{
+          font-size: 18px;
+         }
+         a{
+          padding: 0;
+         }
+         &.active{
+          padding: 0;
+          &:after{
+            bottom:-17px !important;
+          }
+         }
+        }
+       }
+    }
+    #news .newsList {
+      padding-left: 70px;overflow: visible;margin: 0;
+      .date{
+        font-size: 14px;left: 0px;line-height:20px;
+      }
+      &:before{
+        width: 50px; height: 50px;left: 0;
+      }
+      &:after{
+        left: -9px;top: 45px;width: 68px;
+      }
+    }
+    #dream .dream2 {
+      .con .bxgbc span{
+        font-size: 16px;
+      }
+      .carousel .carousel-control {
+        bottom: 6em;
+      }
+    }
+    #contact {
+      .addr{
+        padding-bottom: 0;
+      }
+      .map{
+        padding: 0;width: 95%;
+      }
+    }
+    #preloader-logo-image{
+      background-size:50%;
+    }
+    
+}

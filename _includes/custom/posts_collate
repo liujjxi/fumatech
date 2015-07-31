@@ -1,0 +1,70 @@
+<!-- 遍历分页后的文章 -->
+<div class="row">
+  {% for post in posts_collate %}
+  <div class="col-xs-12">
+    <div class="media newsList">
+      <div class="media-left date"><span>{{ post.date | date: "%F" | split:"-" |last }}</span><br><small>{{ post.date | date: "%F" |  truncate: 7, '' }}</small></div>
+      <div class="media-body">
+        <h4 class="media-heading">
+          <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+        </h4>
+        <div class="newsDesc">
+          <small>{{ post.summary }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- <div id="post-pagination" class="pagination">
+<ul class="pages list-inline">
+  {% if paginator.previous_page %}
+  <li class="previous">
+    {% if paginator.previous_page == 1 %}
+    <a href="/">
+      < </a>
+        {% else %}
+        <a href="{{ paginator.previous_page_path }}">
+          < </a>{% endif %}</li>
+          {% else %}
+          <li class="previous disabled">
+            <span>
+              < </span></li>
+              {% endif %}
+
+      {% if paginator.page == 1 %}
+              <li class="page current-page">
+                <span class="">1</span>
+              </li>
+              {% else %}
+              <li class="page">
+                <a href="/">1</a>
+              </li>
+              {% endif %}
+
+    {% for count in (2..paginator.total_pages) %}
+      {% if count == paginator.page %}
+              <li class="page current-page">
+                <span class="">{{ count }}</span>
+              </li>
+              {% else %}
+              <li class="page">
+                <a href="/page{{ count }}">{{ count }}</a>
+              </li>
+              {% endif %}
+    {% endfor %}
+
+  {% if paginator.next_page %}
+              <li class="next">
+                <a href="{{ paginator.next_page_path }}">></a>
+              </li>
+              {% else %}
+              <li class="next disabled">
+                <span>></span>
+              </li>
+              {% endif %}
+            </ul>
+
+          </div>
+          -->
