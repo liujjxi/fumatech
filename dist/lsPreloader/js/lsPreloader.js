@@ -202,7 +202,7 @@
 							  left: "0",
 							  marginBottom: ( parseFloat($opLoader.progressHeight) / 2 ) + 20 + "px",
 							  backgroundImage: "url(" + $opLoader.logoImage + ")",
-							  backgroundPosition: "0 0",
+							  backgroundPosition: "center bottom",
 							  backgroundRepeat: "no-repeat"
 						   });
 						   
