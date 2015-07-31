@@ -2,14 +2,14 @@
 # For more see: http://jekyllrb.com/docs/permalinks/
 permalink: /:categories/:year/:month/:day/:title 
 
-exclude: ["test","node_modules",".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+exclude: ["test","node_modules",".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md",'*.markdown','*.xml','*.txt','Gruntfile.js','package.json']
 # highlighter: pygments
 highlighter: pygments
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : 湖南福马科技|滑客|湘行一卡通|火树银花|屏保软件赚积分商城|移动互联网APP开发|运营|福马集团|滑客
+title : 湖南福马科技|移动互联网运营|手机新媒体|福马科技
 tagline: Site Tagline
 author :
   name : 湖南福马科技发展有限公司
@@ -17,14 +17,16 @@ author :
   email : 1165024191@qq.com
   QQ : 1165024191
   tel: 4006-2828-25 0731-82808080
+  keywords: 湖南福马科技|滑客|湘行一卡通|火树银花|屏保软件赚积分商城|移动互联网APP开发|运营|福马集团|滑客.
   description: > # this means to ignore newlines until "baseurl:"
-   湖南福马科技|滑客|湘行一卡通|火树银花|屏保软件赚积分商城|移动互联网APP开发|运营|福马集团|滑客.
+   湖南福马科技|移动互联网运营|手机新媒体|福马科技.
   imgurl: "/assets/style/img/"
   jsurl: "/assets/style/js/"
   cssurl: "/assets/style/css/"
   baseurl: "" # the subpath of your site, e.g. /blog/
   url: "http://www.fumatech.cn/" # the base hostname & protocol for your site
   copyright: www.fumatech.cn All Rights reserved
+  ips: 湘ICP备15002791号
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
@@ -63,8 +65,8 @@ JB :
   #   - Only the following values are falsy: ["", null, false]
   #   - When setting BASE_PATH it must be a valid url.
   #     This means always setting the protocol (http|https) or prefixing with "/"
-  BASE_PATH : /fumatech
-
+  BASE_PATH : 
+  HOME_PATH : 
   # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
   # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
   #
@@ -73,8 +75,8 @@ JB :
   #   http://s3.amazonaws.com/yoursite/themes/watermelon
   #   /assets
   #
-  ASSET_PATH : 
-  CSS_PATH: /style
+  ASSET_PATH : assets/themes/fumatech
+  CSS_PATH: style
   # These paths are to the main pages Jekyll-Bootstrap ships with.
   # Some JB helpers refer to these paths; change them here if needed.
   #
@@ -148,5 +150,5 @@ markdown: kramdown
 # paginate: 4
 # paginate_path: "page:num"
 sass:
-    sass_dir: _sass/fumatech/
+    sass_dir: _sass/fumatech
     style: :compressed

@@ -10,7 +10,8 @@ $en-font-family:  Helvetica,Arial;
 $base-font-size:   16px;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
-$img-url:          '/assets/themes/fumatech/images';
+$img-url:          '../../assets/themes/fumatech/images';
+$m_img-url:          '../../assets/themes/fumatech/m_images';
 
 $spacing-unit:     0px;
 
@@ -330,10 +331,6 @@ header {
     margin-top: 4em;padding-left: 48px;
     list-style:none;
     line-height: 70px;
-    @include media-query(1366px){
-      margin-top: 2em;
-      line-height: 55px;
-    }
     a{
       color: #fff;
       &:focus,&:hover,&.active {
@@ -342,7 +339,14 @@ header {
     }
   }
   #navBtn{
-    cursor: pointer;
+    cursor: pointer;display:none;
+  }
+  @include media-query(1360px){
+    padding-top: 1em;
+    &>ul{
+      margin-top: 2em;
+      line-height: 55px;
+    }
   }
 }
 /**
@@ -396,6 +400,19 @@ header {
       }
     }
 }
+.lt-ie9{
+  .wrapper{
+    *{
+      @include opacity(0);
+    }
+    &.animate{
+      @include opacity(40);
+      *{
+        @include opacity(100);
+      }
+    }
+  }
+}
 html{
   height: 100%;
   body,.wrapper,section{
@@ -427,7 +444,7 @@ html{
         .wrapper.animate header{
           @include translate(-230px,0);
           #navBtn{
-            padding: 1em;line-height: 2;
+            width: 30px;height: 30px;line-height: 30px;text-align: center;border-radius:50%;font-size:12px;font-weight:400;
             position: absolute;left: 230px;top: 0;background-color: $brand-color;
           }
         }
@@ -453,10 +470,19 @@ html{
         }
 
       }
+      #num{
+        position:absolute;right: 0;top: 0;width: 190px;height: 105px;color: #fff;
+        background:url(#{$img-url}/numBg.png) no-repeat 0 0;text-align: center;
+        background-size:contain;
+        .cell{
+          margin-top: .5em;
+        }
+      }
       .wrapper>section{
         @include scale(.95);
         padding-left: 230px;
         line-height: $base-line-height;
+        width: 100%;
         h3{
           margin:1em 0;color: #000;
         }
@@ -471,10 +497,10 @@ html{
       .wrapper>section>section{
         padding:6% 4em;
         &>.row{
-          width:760px;margin-left: 5%;
+          max-width:760px;margin-left: 5%;background-color: #000;
           background-color: rgba(0,0,0,.4);color: #fff;
           .con{
-            margin: 2em 0;padding: .1em 2em; border-left: 1px solid rgba(255,255,255,.4); min-height: 450px;width: 100%;
+            margin: 2em 0;padding: .1em 2em; border-left: 1px solid #999;border-left: 1px solid rgba(255,255,255,.4); min-height: 450px;width: 100%;
             h3{
               text-align: center;color: $title-color !important;
             }

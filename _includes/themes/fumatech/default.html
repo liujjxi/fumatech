@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"  id="{{ page.wordpress_id }}"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"  id="{{ page.wordpress_id }}"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9 ie" lang="en"  id="{{ page.wordpress_id }}"> <![endif]-->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"  id="{{ page.category }}"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"  id="{{ page.category }}"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9 ie" lang="en"  id="{{ page.category }}"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"  id="{{ page.category }}"> <!--<![endif]-->
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="author" content="{{ site.author.name }}" />
+    <meta name="keywords" content="{{ page.keywords }}-{{ site.author.keywords }}">
     <meta name="description" content="{{ page.description }}-{{ site.author.description }}">
     <title>{{ page.description }}|{{ site.author.description }}</title>
     <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -16,7 +17,7 @@
     <link rel="stylesheet" href="{{ CSS_PATH }}/css/main.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> 
     <!--[if lt IE 9]>
-    <script src="html5.js"></script>
+    <script src="style/html5.js"></script>
     <![endif]-->
     <!-- {% include JB/analytics %} -->
     <script src="{{ ASSET_PATH }}/jquery.min.js"></script>
@@ -26,7 +27,7 @@
     </script>
   </head>
   <body id="load" class="{{page.wordpress_id}} none">
-    <div class="wrapper" data-src="{{ ASSET_PATH }}/images/{{page.category}}P1.png">
+    <div class="wrapper palm">
       <header>
         <h1 class="header">
         <a href="{{ HOME_PATH }}">
@@ -49,7 +50,7 @@
         {% if site.author %}
         <div class="misc vcard">
           {% if site.author.email %}
-          <p class="contact"><address><span class="author fn n">{{ site.author.name }}</span> - <span class="fn email">{{ site.author.email }}</span></address></p>
+          <p class="contact"><address><span class="author fn n">{{ site.author.name }}</span> - <span class="fn ips">{{ site.author.ips }}</span></address></p>
           {% endif %}
         </div><!-- misc -->
         {% endif %}
@@ -73,15 +74,12 @@
         </div>
       </div>
     </div>
+    <div id="num">
+      <div class="cell">挂牌代码<br>300246</div>
+    </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     <script src="{{ ASSET_PATH }}/js/lsPreloader.min.js"></script>
-    <!--[if lt IE9]> 
-    <script> 
-       (function() {
-         return show=false;
-    })() 
-    </script>
-    <![endif]-->    
+  
     <script>
       var winH=$(window).height();
       function load(){
@@ -92,14 +90,13 @@
         }
       }
       $(function(){
-
           
-        $("#load").lsPreloader({
+       /**/ $("#load").lsPreloader({
             
             backgroundColor:    "#a81902",
-            backgroundImage:  "http://localhost:4000/assets/themes/fumatech/images/swirl_pattern.png",
+            backgroundImage:  "assets/themes/fumatech/images/swirl_pattern.png",
             backgroundRepeat: "repeat",
-            logoImage:      "http://localhost:4000/assets/themes/fumatech/images/logo.png",
+            logoImage:      "assets/themes/fumatech/images/logo.png",
             progressShow:   true,
             minimumTime:        .5,
             progressHeight:     "2px",
@@ -123,9 +120,9 @@
               }
             }
         });
-        if($(window).width()<1000){
+        if($(window).width()<1360){
           $('body').addClass('left');
-          $('#navBtn').html('<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>导航')
+          $('#navBtn').show().html('<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>');
         }
         $('#navBtn').on('click',function(){
           if($('body').hasClass('left')){
@@ -133,7 +130,7 @@
             $('#navBtn').html('X 关闭')
           }else{
             $('body').addClass('left');
-            $('#navBtn').html('<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>导航')
+            $('#navBtn').html('<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>')
           }
         })
                   

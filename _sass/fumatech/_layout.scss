@@ -255,9 +255,12 @@
         padding: 6% 15%;
         &>.row{
           margin-left: 0;
-          width: auto;
+          max-width: none;
           .con{
             padding-left: 5em;
+            #con{
+              word-break: break-all;
+            }
           }
         }
       }
@@ -270,9 +273,9 @@
     section{
       section{
         &>.row{
-          background-color: rgba(255,255,255,.4);color: $text-color;
+          background-color: #f5e5c2;background-color: rgba(255,255,255,.4);color: $text-color;
           .con{
-            border-left-color:rgba(0,0,0,.4);
+            border-left-color:#f5e5c2;border-left-color:rgba(0,0,0,.4);
           }
         }
       }
@@ -317,7 +320,7 @@
       content:"";
       position: absolute;left: 15px;top: 20px;
       width: 70px;height: 70px;background-color: $brand-color;
-      transform:rotate(45deg);
+      @include rotate(45);
     }
     a,small{
       color: $text-color;
@@ -343,6 +346,14 @@
         &:after{
           content:'#{$i}';
         }
+      }
+    }
+  }
+  &.lt-ie9{
+    .newsList{
+      &:after{
+        left: 15px;
+        width: 70px;
       }
     }
   }
@@ -390,6 +401,9 @@
       .glyphicon{
         font-size: 20px;line-height: 30px;
         text-shadow: none;
+        @include media-query($on-palm){
+          top: 0;
+        }
       }
       &.left{
         margin-left: -50px;
@@ -448,7 +462,12 @@
 #fuma,#dream{
   .fumaBtn{
     margin: 2em auto;
-    width: 125px;height: 125px;background:$brand-color no-repeat center content-box;
+    width: 125px;height: 125px;
+    background-color:$brand-color;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-origin: content-box;
+    background-clip: content-box;
     background-size:80%;
     border-radius: 50%;padding: 5px;border:1px solid $brand-color;
     @include transition(border,.2s);
@@ -472,6 +491,21 @@
       background-position: center bottom;
     }
   }
+  &.lt-ie9{
+    .fumaBtn{
+      width: 135px;height: 145px;
+      background-color:transparent;
+      border:none;
+      &:hover,&.active{
+        padding: 0px;
+      }
+      @for $i from 1 through 3 {
+        &.fumaBtn-#{$i} { 
+          background-image: url(#{$img-url}/fumaTxt#{$i}ie.png);
+        }
+      }
+    }
+  }
   .fumaCon1{
     border-left:none;
     .title{
@@ -493,6 +527,9 @@
 }
 /*福马梦*/
 #dream{
+  &.lt-ie9 .fumaBtn{
+    background: url(#{$img-url}/btnBg.png)
+  }
   footer,footer small{
     color: #fff;
   }
@@ -508,7 +545,7 @@
       &>section{
         @extend %cell;
         &>.row{
-          margin-left: 25%;
+          margin-left: 10%;
         }
       }
     }
@@ -610,3 +647,120 @@
   }
 }
 
+@include media-query($on-palm) {
+    html {
+      header{
+        width: 120px;padding: 1em;
+        ul{
+          line-height: 45px;padding-left: .5em;
+        }
+      }
+      #footer{
+        padding-left: 0px;
+      }
+      $page-list: home, about, news, fuma, dream, contact;
+      @each $page in $page-list {
+        &##{$page} {
+          body{
+            background-image: url(#{$m_img-url}/#{$page}P1.png) !important;
+          }
+        }
+      }
+      body {
+        background-position: 120px 0;
+        #num{
+          width: 125px; height: 70px; font-size: 12px;
+        }
+        .wrapper>section{
+          padding-left: 120px;
+          &>section{
+            padding: 0;
+            &>.row{
+              margin-left: 0;padding-top: 2em;padding-bottom:2em;background:transparent;
+              .col-xs-2{
+                padding: 0;
+                .title{
+                  background-size: contain !important;
+                }
+              }
+              .con {
+                padding:0 0 0 1em !important;
+                h3{
+                  font-size:16px;
+                }
+              }
+            }
+          }
+        }
+        &.left .wrapper.animate header #navBtn{
+          top:auto;bottom:3em;;
+        }
+      }
+    }
+    #news, #dream .dream1 {
+      .wrapper section section{
+        padding: 0;
+      }
+    } 
+    .dream0,.dream2,.fuma,.contact
+    {
+      &>.wrapper>section>section>.row{
+        margin-left: 0;
+      }
+    }
+    #fuma, #dream{
+       .fumaBtn{
+        width: 70px;height: 70px;margin: 0 0 0 -2em;font-size:12px;
+        a h4{
+          font-size: 12px;
+        }
+        &.icon{
+          width: 50px !important;height: 50px !important;margin: 1em .2em !important;
+         .fa{
+          font-size: 18px;
+         }
+         a{
+          padding: 0;
+         }
+         &.active{
+          padding: 0;
+          &:after{
+            bottom:-17px !important;
+          }
+         }
+        }
+       }
+    }
+    #news .newsList {
+      padding-left: 70px;overflow: visible;margin: 0;
+      .date{
+        font-size: 14px;left: 0px;line-height:20px;
+      }
+      &:before{
+        width: 50px; height: 50px;left: 0;
+      }
+      &:after{
+        left: -9px;top: 45px;width: 68px;
+      }
+    }
+    #dream .dream2 {
+      .con .bxgbc span{
+        font-size: 16px;
+      }
+      .carousel .carousel-control {
+        bottom: 6em;
+      }
+    }
+    #contact {
+      .addr{
+        padding-bottom: 0;
+      }
+      .map{
+        padding: 0;width: 95%;
+      }
+    }
+    #preloader-logo-image{
+      background-size:50%;
+    }
+    
+}

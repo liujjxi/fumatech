@@ -7,7 +7,7 @@
   <div class="col-xs-10">
     <div class="con">
       <div class="row">
-        <div id="page" class="carousel slide" data-interval="false">
+        <div id="page" class="carousel slide carousel-fade" data-interval="false">
           <div class="carousel-inner" role="listbox" id="newsLoad">
             
           </div>
@@ -36,7 +36,7 @@
       success:function(response,status,xhr){
         console.log('loaded');
         var json_news=response,
-                  num=4,
+                  num=6,
                   i=0,
                   newsIdx=0,
                   result=[];
@@ -67,14 +67,12 @@
   });
   function loadNews(json,i){
     $.each(json,function(index,value){
-      var desc;
-      if(value.newsDesc=='') {
-        desc=value.newsContent.split('>')[1].substring(3,100)
-      } else{
-        desc=value.newsDesc
-      }
+      var desc='';
+      if(!value.newsDesc=='') {
+        desc='<div class="desc">'+value.newsDesc+'</div>';
+      } 
 
-     $('.page'+i).append('<div class="col-xs-6"><div class="media img"><img src="http://www.fumatech.cn/style/images/news/150509/1.jpg"><div class="desc">'+value.newsDesc+'</div></div></div>')
+     $('.page'+i).append('<div class="col-sm-6"><div class="media img"><img src="'+value.newsImg+'">'+desc+'</div></div>')
     });
 
 
